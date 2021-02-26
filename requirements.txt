@@ -12,6 +12,7 @@ spongemock
 zalgo-text
 geopy
 nltk
+telethon==1.19.5
 aiohttp>=2.2.5
 Pillow>=4.2.0
 #Cool stuff by Peak
