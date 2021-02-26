@@ -16,18 +16,18 @@ from telegram import ParseMode, Update, Bot, Chat, User, MessageEntity, InlineKe
 from telegram.ext import run_async, CommandHandler, MessageHandler, Filters, CallbackQueryHandler
 from telegram.utils.helpers import escape_markdown, mention_html, mention_markdown
 
-from Angelina import dispatcher, OWNER_ID, SUDO_USERS, DEV_USERS, WHITELIST_USERS, LOGGER, MESSAGE_DUMP
-from Angelina.modules.helper_funcs.handlers import CMD_STARTERS
-from Angelina.modules.helper_funcs.misc import is_module_loaded, send_to_list
-from Angelina.modules.helper_funcs.chat_status import is_user_admin
-from Angelina.modules.helper_funcs.extraction import extract_user, extract_unt_fedban, extract_user_fban
-from Angelina.modules.helper_funcs.string_handling import markdown_parser
-from Angelina.modules.disable import DisableAbleCommandHandler
+from haruka import dispatcher, OWNER_ID, SUDO_USERS, DEV_USERS, WHITELIST_USERS, LOGGER, MESSAGE_DUMP
+from haruka.modules.helper_funcs.handlers import CMD_STARTERS
+from haruka.modules.helper_funcs.misc import is_module_loaded, send_to_list
+from haruka.modules.helper_funcs.chat_status import is_user_admin
+from haruka.modules.helper_funcs.extraction import extract_user, extract_unt_fedban, extract_user_fban
+from haruka.modules.helper_funcs.string_handling import markdown_parser
+from haruka.modules.disable import DisableAbleCommandHandler
 
-import Angelina.modules.sql.feds_sql as sql
+import haruka.modules.sql.feds_sql as sql
 
-from Angelina.modules.connection import connected
-from Angelina.modules.helper_funcs.alternate import send_message
+from haruka.modules.connection import connected
+from haruka.modules.helper_funcs.alternate import send_message
 # Hello bot owner, I time spent for feds many hours of my life, Please don't remove this if you still respect MrYacha and peaktogoo and AyraHikari too
 # Federation by MrYacha
 # Federation rework by Mizukito Akito
