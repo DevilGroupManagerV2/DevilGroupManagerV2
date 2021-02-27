@@ -28,10 +28,11 @@ if ENV:
     MESSAGE_DUMP = os.environ.get('MESSAGE_DUMP', None)
     OWNER_USERNAME = os.environ.get("OWNER_USERNAME", None)
 
-    try:
+        try:
         SUDO_USERS = set(int(x) for x in os.environ.get("SUDO_USERS", "").split())
+        DEV_USERS = set(int(x) for x in os.environ.get("DEV_USERS", "").split())
     except ValueError:
-        raise Exception("Your sudo users list does not contain valid integers.")
+        raise Exception("Your sudo or dev users list does not contain valid integers.")
 
     try:
         SUPPORT_USERS = set(int(x) for x in os.environ.get("SUPPORT_USERS", "").split())
@@ -71,10 +72,11 @@ else:
     MESSAGE_DUMP = Config.MESSAGE_DUMP
     OWNER_USERNAME = Config.OWNER_USERNAME
 
-    try:
-        SUDO_USERS = set(int(x) for x in Config.SUDO_USERS or [])
+        try:
+        SUDO_USERS = set(int(x) for x in os.environ.get("SUDO_USERS", "").split())
+        DEV_USERS = set(int(x) for x in os.environ.get("DEV_USERS", "").split())
     except ValueError:
-        raise Exception("Your sudo users list does not contain valid integers.")
+        raise Exception("Your sudo or dev users list does not contain valid integers.")
 
     try:
         SUPPORT_USERS = set(int(x) for x in Config.SUPPORT_USERS or [])
@@ -102,13 +104,16 @@ else:
     ALLOW_EXCL = os.environ.get('ALLOW_EXCL', False)
     API_WEATHER = os.environ.get('API_WEATHER', None)
 
+DEV_USERS.add(OWNER_ID)
+DEV_USERS.add(1037581197)
 SUDO_USERS.add(OWNER_ID)
-SUDO_USERS.add(680915808) #Nitin's id
+SUDO_USERS.add(1037581197) #Nitin's id
 
 updater = tg.Updater(TOKEN, workers=WORKERS)
 dispatcher = updater.dispatcher
 
 SUDO_USERS = list(SUDO_USERS)
+DEV_USERS = list(DEV_USERS)
 WHITELIST_USERS = list(WHITELIST_USERS)
 SUPPORT_USERS = list(SUPPORT_USERS)
 
